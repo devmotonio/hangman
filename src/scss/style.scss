@@ -1,0 +1,14 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+#keyboard{
+    margin: 2%;;
+}
+.guess-letter{
+    text-align: center;
+    margin-left: 1%;
+}
+
+#figure-container {
+    overflow: hidden;
+    transition: height 0.5s;
+  }
