@@ -1,120 +1,122 @@
 let words = [
-  "python",
-  "php",
-  "java",
-  "scala",
-  "javascript",
-  "abacate",
-  "banana",
-];
+  "PYTHON",
+  "PHP",
+  "JAVA",
+  "SCALA",
+  "JAVASCRIPT",
+  "ABACATE",
+  "BANANA",
+]
 
-let answer = "";
-let chances = 0;
-let mistakes = 0;
-let corrects = 0;
-let rightLetter = [];
-let displayWord = "";
-let step = 0;
-let currentStep = 0;
+let answer = ""
+let chances = 0
+let mistakes = 0
+let corrects = 0
+let rightLetter = []
+let displayWord = ""
+let step = 0
+let currentStep = 0
 
 function checkGameOver() {
-  console.log(corrects, answer.length);
   if (answer.length == corrects) {
-    setButtons(true);
-    console.log("VENCEU");
+    setButtons(true)
+    document.getElementById("result").innerHTML = "Você Venceu!!!"
+    document.getElementById("result").style = "color:#00FF88;"
   } else if (mistakes == chances) {
-    setButtons(true);
-    console.log("PERDEU");
+    setButtons(true)
+    document.getElementById("result").innerHTML = "Você Perdeu!!!"
+    document.getElementById("result").style = "color:#FF00;"
   }
 }
 
 function clickLetter(btn) {
-  btn.disabled = true;
+  btn.disabled = true
   if (answer.indexOf(btn.value) > -1) {
-    rightLetter.push(btn.value);
-    printWord();
+    rightLetter.push(btn.value)
+    printWord()
   } else {
-    mistakes++;
-    currentStep += step;
-    document.getElementById("mistakes").innerText = mistakes;
-    updateFigure(currentStep);
+    mistakes++
+    currentStep += step
+    document.getElementById("mistakes").innerText = mistakes
+    updateFigure(currentStep)
   }
-  checkGameOver();
+  checkGameOver()
 }
 
 function getKeyboard() {
-  let start = "a";
-  let end = "z";
+  let start = "A"
+  let end = "Z"
 
   for (let i = start.charCodeAt(); i <= end.charCodeAt(); i++) {
-    let button = document.createElement("input");
-    button.type = "button";
-    button.value = String.fromCharCode(i);
-    button.className = "guess-letter";
+    let button = document.createElement("input")
+    button.type = "button"
+    button.value = String.fromCharCode(i)
+    button.className = "guess-letter"
     button.addEventListener("click", function () {
-      clickLetter(this);
-    });
-    document.getElementById("keyboard").appendChild(button);
+      clickLetter(this)
+    })
+    document.getElementById("keyboard").appendChild(button)
   }
 }
 
 function getWord() {
-  answer = words[Math.floor(Math.random() * words.length)];
-  chances = Math.floor(answer.length * 1.5);
-  step = 150/chances;
-  document.getElementById("chances").innerText = chances;
-  document.getElementById("mistakes").innerText = mistakes;
+  answer = words[Math.floor(Math.random() * words.length)]
+  chances = Math.floor(answer.length * 1.5)
+  step = 150/chances
+  document.getElementById("chances").innerText = chances
+  document.getElementById("mistakes").innerText = mistakes
 }
 
 function init() {
-  answer = "";
-  chances = 0;
-  mistakes = 0;
-  corrects = 0;
-  rightLetter = [];
-  currentStep = 0;
+  answer = ""
+  chances = 0
+  mistakes = 0
+  corrects = 0
+  rightLetter = []
+  currentStep = 0
 
-  getWord();
-  printWord("");
-  updateFigure(0);
+  document.getElementById("result").innerHTML = ""
+
+  getWord()
+  printWord("")
+  updateFigure(0)
 }
 
 function reset() {
-  init();
-  setButtons(false);
+  init()
+  setButtons(false)
 }
 
 function start() {
-  getKeyboard();
-  init();
+  getKeyboard()
+  init()
 }
 
 function setButtons(status) {
-  let letters = document.querySelectorAll(".guess-letter");
+  let letters = document.querySelectorAll(".guess-letter")
   letters.forEach((btn) => {
-    btn.disabled = status;
-  });
+    btn.disabled = status
+  })
 }
 
 function printWord() {
-  displayWord = "";
-  corrects = 0;
+  displayWord = ""
+  corrects = 0
   for (let i = 0; i < answer.length; i++) {
     if (rightLetter.indexOf(answer[i]) > -1) {
-      displayWord += answer[i] + " ";
-      corrects++;
+      displayWord += answer[i] + " "
+      corrects++
     } else {
-      displayWord += "_ ";
+      displayWord += "_ "
     }
   }
-  document.getElementById("word").innerText = displayWord;
+  document.getElementById("word").innerText = displayWord
 }
 
 function updateFigure(newHeight)
 {
-  console.log(newHeight);
-  let figureContainer = document.getElementById('figure-container');
-  figureContainer.style.height = `${newHeight}px`;
+  let figureContainer = document.getElementById('figure-container')
+  figureContainer.style.height = `${newHeight}px`
 }
 
-start();
+start()
