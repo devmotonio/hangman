@@ -37,7 +37,6 @@ function packJs() {
 
 function packJsMain() {
     return src(['./src/js_main/*.js'])
-        .pipe(concat('index.js'))
         .pipe(minify({ext:{min:".min.js"},noSource:true}))
         .pipe(dest('./dist/assets/js'));
 };

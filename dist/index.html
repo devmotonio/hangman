@@ -8,7 +8,7 @@
     <link rel="stylesheet" media="screen" href="./assets/css/style.css" />
 
     <script defer src="./assets/js/style.min.js"></script>
-    <script defer src="./assets/js/index.min.js"></script>
+    <script type="module" src="./assets/js/index.min.js"></script>
 
     <title>Hangman</title>
   </head>
@@ -17,7 +17,7 @@
     <div class="container">
       <h1 class="text-center">Hangman</h1>
       <div class="text-end">
-        Wrong guess <span id="mistakes">0</span> of <span id="chances"></span>
+        Wrong guess: <span id="mistakes">0</span> of <span id="chances"></span>
       </div>
       <div class="row">
         <div class="col-sm-6 col-md-2">
@@ -48,7 +48,7 @@
             <p id="word">word here</p>
             <p id="result"></p>
             <div id="keyboard"></div>
-            <button class="btn btn-info" onClick="reset()">Reset</button>
+            <button class="btn btn-info" id="resetButton">Reset</button>
           </div>
         </div>
       </div>
