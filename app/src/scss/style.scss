@@ -1,0 +1,18 @@
+@import "bootstrap/scss/bootstrap";
+
+#keyboard{
+    margin: 2%;;
+}
+/* text-align: center; */
+.btn.guess-letter{
+    margin-left: 1%;
+    margin-top: 1%;
+    background-color: var(--bs-blue);
+    color:#fff;
+}
+
+#figure-container {
+    overflow: hidden;
+    transition: height 0.5s;
+    height: 0;
+  }

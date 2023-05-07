@@ -20,9 +20,9 @@ export default class Game {
     if (this.answer.length == this.corrects) {
       this.setButtons(true);
       document.getElementById("result").style = "color:#00FF88;";
-      document.getElementById("result").innerHTML = "Você Venceu!!!";
+      document.getElementById("result").innerHTML = "You won!!!";
       setTimeout(() => {
-        let newWord = prompt("Adicione uma nova palavra:");
+        let newWord = prompt("Add a new word:");
         if (newWord != null && newWord != "") {
           this.words.push(newWord.toUpperCase());
           localStorage.setItem("words", this.words.join(","));
@@ -31,7 +31,7 @@ export default class Game {
     } else if (this.mistakes == this.chances) {
       this.setButtons(true);
       document.getElementById("result").style = "color:#FF0000;";
-      document.getElementById("result").innerHTML = "Você Perdeu!!!";
+      document.getElementById("result").innerHTML = "You loose!!!";
     }
   }
 
@@ -58,7 +58,7 @@ export default class Game {
       button.type = "button";
       button.id = "btn_" + i;
       button.value = String.fromCharCode(i);
-      button.className = "guess-letter";
+      button.className = "btn guess-letter";
       button.addEventListener("click", (event) => {
         this.clickLetter(event.target);
       });

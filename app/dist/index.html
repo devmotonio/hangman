@@ -5,23 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" media="screen" href="./assets/css/style.css" />
-
-    <script defer src="./assets/js/style.min.js"></script>
-    <script type="module" src="./assets/js/index.min.js"></script>
-
     <title>Hangman</title>
-  </head>
+    
+  <script defer src="asset/js/index.bundle.js?9626bcbd45d2abcde1ab"></script><script defer src="asset/js/bootstrap.bundle.js?9626bcbd45d2abcde1ab"></script><link href="asset/css/bundle.css?9626bcbd45d2abcde1ab" rel="stylesheet"></head>
 
   <body>
     <div class="container">
       <h1 class="text-center">Hangman</h1>
-      <div class="text-end">
-        Wrong guess: <span id="mistakes">0</span> of <span id="chances"></span>
-      </div>
+      <div class="text-end">Wrong guess: <span id="mistakes">0</span> of <span id="chances"></span></div>
       <div class="row">
-        <div class="col-sm-6 col-md-2">
-          <svg height="150" width="200" id="figure-container">
+        <div class="col-sm-6 col-md-4">
+          <svg height="150" width="200" id="figure-container" class="mx-auto d-block">
             <!-- Rod -->
             <line x1="60" y1="1" x2="140" y2="1" stroke="black" />
             <line x1="140" y1="1" x2="140" y2="21" stroke="black" />
@@ -42,13 +36,13 @@
             <line x1="140" y1="120" x2="160" y2="140" stroke="black" />
           </svg>
         </div>
-        <div class="col-sm-6 col-md-10">
+        <div class="col-sm-6 col-md-8">
           <div class="text-center">
             <p>Guess the word:</p>
             <p id="word">word here</p>
             <p id="result"></p>
             <div id="keyboard"></div>
-            <button class="btn btn-info" id="resetButton">Reset</button>
+            <button class="btn btn-warning" id="resetButton">Reset</button>
           </div>
         </div>
       </div>
